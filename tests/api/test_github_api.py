@@ -79,5 +79,5 @@ def test_delete_repo(github_api):
 
 @pytest.mark.api_create
 def test_craete_repo_with_a_valid_data(github_api):
-    r = github_api.create_repo(name = ' API repo', description = 'My first repo created by API request')
+    r = github_api.create_repo(name = 'Second API repo', description = 'My second repo created using API request')
     assert r.status_code == 201
