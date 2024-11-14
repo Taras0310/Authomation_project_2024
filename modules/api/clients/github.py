@@ -8,6 +8,13 @@ class Github:
 
     def get_user(self, username):
         r = requests.get(f'{self.base_url}/users/{username}' )
+
+
+class Github:
+
+    def get_user(self, username):
+        r = requests.get(f'https://api.github.com/users/{username}' )
+
         body = r.json()
 
         return body
@@ -71,3 +78,9 @@ class Github:
         }, json=data)
         #r.raise_for_status()  # якщо запит успішний продовжить виконання, ні - поверне помилку ЩЕ ДО ВИКОНАННЯ ASSERT
         return r
+
+        r= requests.get(f'https://api.github.com/search/repositories?q={name}')
+        body = r.json()
+
+        return body
+
