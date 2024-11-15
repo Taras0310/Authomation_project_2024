@@ -7,12 +7,7 @@ class Github:
         self.base_url = 'https://api.github.com'
         self.github_token = os.getenv("GITHUB_TOKEN")
 
-    def get_user(self, username):
-        r = requests.get(f'{self.base_url}/users/{username}' )
 
-
-
-class Github:
 
     def get_user(self, username):
         r = requests.get(f'https://api.github.com/users/{username}' )
