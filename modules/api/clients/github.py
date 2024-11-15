@@ -1,4 +1,5 @@
 import requests
+
 import os
 
 class Github:
@@ -6,11 +7,7 @@ class Github:
         self.base_url = 'https://api.github.com'
         self.github_token = os.getenv("GITHUB_TOKEN")
 
-    def get_user(self, username):
-        r = requests.get(f'{self.base_url}/users/{username}' )
 
-
-class Github:
 
     def get_user(self, username):
         r = requests.get(f'https://api.github.com/users/{username}' )
@@ -20,6 +17,7 @@ class Github:
         return body
 
     def search_repo(self, name):
+
         r= requests.get(f'{self.base_url}/search/repositories?q={name}')
         body = r.json()
 
@@ -78,6 +76,7 @@ class Github:
         }, json=data)
         #r.raise_for_status()  # якщо запит успішний продовжить виконання, ні - поверне помилку ЩЕ ДО ВИКОНАННЯ ASSERT
         return r
+
 
         r= requests.get(f'https://api.github.com/search/repositories?q={name}')
         body = r.json()

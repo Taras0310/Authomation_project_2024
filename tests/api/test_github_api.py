@@ -1,20 +1,4 @@
-<<<<<<< HEAD
-from wsgiref.validate import assert_
-
 import pytest
-import pprint
-
-@pytest.mark.api_get
-def test_user_exist(github_api):
-    user = github_api.get_user('Taras0310')
-    assert user['login'] == 'Taras0310'
-
-
-
-@pytest.mark.api_get
-=======
-import pytest
-from modules.api.clients.github import Github
 import pprint
 
 @pytest.mark.api
@@ -24,31 +8,23 @@ def test_user_exist(github_api):
 
 
 @pytest.mark.api
->>>>>>> 458d670c60837447adfc95a4c42a7572d1f386a4
 def test_user_not_exists(github_api):
     r = github_api.get_user('yakushevych')
     assert r['message'] == 'Not Found'
 
-<<<<<<< HEAD
-@pytest.mark.api_get
-=======
+
 @pytest.mark.api
->>>>>>> 458d670c60837447adfc95a4c42a7572d1f386a4
 def test_repo_can_be_found(github_api):
     r = github_api.search_repo('become-qa-auto')
     assert r['total_count'] == 58
     assert 'become-qa-auto' in r['items'][0]['name']
 
-<<<<<<< HEAD
-@pytest.mark.api_get
-=======
+
 @pytest.mark.api
->>>>>>> 458d670c60837447adfc95a4c42a7572d1f386a4
 def test_repo_can_not_be_found(github_api):
     r = github_api.search_repo('yakushevych_not_exist')
     assert r['total_count'] == 0
 
-<<<<<<< HEAD
 @pytest.mark.api_get
 def test_repo_can_be_found_with_a_single_char(github_api):
     r = github_api.search_repo('s')
@@ -104,9 +80,14 @@ def test_delete_repo(github_api):
 def test_craete_repo_with_a_valid_data(github_api):
     r = github_api.create_repo(name = 'Second API repo', description = 'My second repo created using API request')
     assert r.status_code == 201
-=======
+
 @pytest.mark.api
 def test_repo_can_be_found_with_a_single_char(github_api):
     r = github_api.search_repo('s')
     assert r['total_count'] != 0
->>>>>>> 458d670c60837447adfc95a4c42a7572d1f386a4
+
+@pytest.mark.api
+def test_repo_can_be_found_with_a_single_char(github_api):
+    r = github_api.search_repo('s')
+    assert r['total_count'] != 0
+
