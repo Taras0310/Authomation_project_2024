@@ -1,6 +1,7 @@
 import pytest
 from modules.api.clients.github import Github
 from modules.common.database import Database
+from modules.ui.page_objects.sign_in_page import SignInPage
 
 class User:
 
@@ -38,3 +39,9 @@ def database():
     db = Database()
 
     yield db
+
+@pytest.fixture()
+def sign_in_page():
+    sign_in = SignInPage()
+
+    yield sign_in
